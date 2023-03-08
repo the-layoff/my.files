@@ -1,0 +1,44 @@
+{
+  "compileOnSave": false,
+  "include": ["src", "types", ".config/prettier.config.js", ".config/setupJest.ts"],
+  "compilerOptions": {
+    // match output dir to input dir. e.g. dist/index instead of dist/src/index
+    "target": "ES6",
+    "rootDir": "./",
+    "baseUrl": "./",
+    // transpile JSX to React.createElement
+    "jsx": "react",
+    "noEmit": true,
+    "module": "commonjs",
+    "lib": ["es2015", "es2016", "dom", "esnext"],
+    "types": ["node", "react", "jest"],
+    "allowSyntheticDefaultImports": true,
+    "removeComments": true,
+    "importHelpers": true,
+    "strictNullChecks": true,
+    "preserveConstEnums": true,
+    // stricter type-checking for stronger correctness. Recommended by TS
+    "strict": true,
+    // linter checks for common issues
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    // noUnused* overlap with @typescript-eslint/no-unused-vars, can disable if duplicative
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    // use Node's module resolution algorithm, instead of the legacy TS one
+    // output .d.ts declaration files for consumers
+    "declaration": true,
+    // output .js.map sourcemap files for consumers
+    "sourceMap": true,
+      "moduleResolution": "node",
+    // interop between ESM and CJS modules. Recommended by TS
+    "esModuleInterop": true,
+    // significant perf increase by skipping checking .d.ts files, particularly those in node_modules. Recommended by TS
+    "skipLibCheck": true,
+    // error out if import and file system have a casing mismatch. Recommended by TS
+    "forceConsistentCasingInFileNames": true,
+    // `tsdx build` ignores this option, but it is commonly used when type-checking separately with `tsc`
+    // use decorators
+    "experimentalDecorators": true
+  }
+}

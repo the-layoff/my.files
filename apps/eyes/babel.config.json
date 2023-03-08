@@ -1,0 +1,40 @@
+// babel.config.json
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "entry",
+        "corejs": "3.22"
+      }
+    ], 
+    [
+      "@babel/preset-react",
+      {
+        "development": true,
+        "pragma": "dom",
+        "pragmaFrag": false,
+        "throwInNamespace": false,
+        "runtime": "classic",
+        "pure": true
+      }
+    ],
+    [
+      "@babel/preset-typescript",
+      {
+        "allowDeclareFields": true,
+        "optimizeConstEnums": true
+      }
+    ]
+  ],
+  "plugins": [
+    "@babel/plugin-transform-runtime",
+    "annotate-pure-calls",
+    "macros",
+    "dev-expression",
+    [
+      "transform-rename-import", 
+      { "original": "assert", "replacement": "power-assert" }
+    ]
+  ]
+}

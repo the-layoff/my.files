@@ -1,0 +1,1721 @@
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+
+/*! ../../actual/array/from */
+
+/*! ../../actual/symbol */
+
+/*! ../../es/array/from */
+
+/*! ../../es/symbol */
+
+/*! ../../full/array/from */
+
+/*! ../../full/symbol */
+
+/*! ../../internals/path */
+
+/*! ../../modules/es.array.concat */
+
+/*! ../../modules/es.array.from */
+
+/*! ../../modules/es.json.to-string-tag */
+
+/*! ../../modules/es.math.to-string-tag */
+
+/*! ../../modules/es.object.to-string */
+
+/*! ../../modules/es.reflect.to-string-tag */
+
+/*! ../../modules/es.string.iterator */
+
+/*! ../../modules/es.symbol */
+
+/*! ../../modules/es.symbol.async-iterator */
+
+/*! ../../modules/es.symbol.description */
+
+/*! ../../modules/es.symbol.has-instance */
+
+/*! ../../modules/es.symbol.is-concat-spreadable */
+
+/*! ../../modules/es.symbol.iterator */
+
+/*! ../../modules/es.symbol.match */
+
+/*! ../../modules/es.symbol.match-all */
+
+/*! ../../modules/es.symbol.replace */
+
+/*! ../../modules/es.symbol.search */
+
+/*! ../../modules/es.symbol.species */
+
+/*! ../../modules/es.symbol.split */
+
+/*! ../../modules/es.symbol.to-primitive */
+
+/*! ../../modules/es.symbol.to-string-tag */
+
+/*! ../../modules/es.symbol.unscopables */
+
+/*! ../../modules/esnext.symbol.async-dispose */
+
+/*! ../../modules/esnext.symbol.dispose */
+
+/*! ../../modules/esnext.symbol.is-registered */
+
+/*! ../../modules/esnext.symbol.is-well-known */
+
+/*! ../../modules/esnext.symbol.matcher */
+
+/*! ../../modules/esnext.symbol.metadata */
+
+/*! ../../modules/esnext.symbol.metadata-key */
+
+/*! ../../modules/esnext.symbol.observable */
+
+/*! ../../modules/esnext.symbol.pattern-match */
+
+/*! ../../modules/esnext.symbol.replace-all */
+
+/*! ../../modules/web.dom-collections.iterator */
+
+/*! ../../stable/array/from */
+
+/*! ../../stable/symbol */
+
+/*! ../../types.js */
+
+/*! ../../utils.js */
+
+/*! ../browser/browsertracing.js */
+
+/*! ../constants.js */
+
+/*! ../eventbuilder.js */
+
+/*! ../helpers.js */
+
+/*! ../hub.js */
+
+/*! ../hubextensions.js */
+
+/*! ../idletransaction.js */
+
+/*! ../internals/a-callable */
+
+/*! ../internals/a-possible-prototype */
+
+/*! ../internals/add-to-unscopables */
+
+/*! ../internals/an-object */
+
+/*! ../internals/array-from */
+
+/*! ../internals/array-includes */
+
+/*! ../internals/array-iteration */
+
+/*! ../internals/array-method-has-species-support */
+
+/*! ../internals/array-slice */
+
+/*! ../internals/array-slice-simple */
+
+/*! ../internals/array-species-constructor */
+
+/*! ../internals/array-species-create */
+
+/*! ../internals/call-with-safe-iteration-closing */
+
+/*! ../internals/check-correctness-of-iteration */
+
+/*! ../internals/classof */
+
+/*! ../internals/classof-raw */
+
+/*! ../internals/copy-constructor-properties */
+
+/*! ../internals/correct-prototype-getter */
+
+/*! ../internals/create-iter-result-object */
+
+/*! ../internals/create-non-enumerable-property */
+
+/*! ../internals/create-property */
+
+/*! ../internals/create-property-descriptor */
+
+/*! ../internals/define-built-in */
+
+/*! ../internals/define-built-in-accessor */
+
+/*! ../internals/define-global-property */
+
+/*! ../internals/descriptors */
+
+/*! ../internals/document-all */
+
+/*! ../internals/document-create-element */
+
+/*! ../internals/does-not-exceed-safe-integer */
+
+/*! ../internals/dom-iterables */
+
+/*! ../internals/dom-token-list-prototype */
+
+/*! ../internals/engine-user-agent */
+
+/*! ../internals/engine-v8-version */
+
+/*! ../internals/enum-bug-keys */
+
+/*! ../internals/export */
+
+/*! ../internals/fails */
+
+/*! ../internals/function-apply */
+
+/*! ../internals/function-bind-context */
+
+/*! ../internals/function-bind-native */
+
+/*! ../internals/function-call */
+
+/*! ../internals/function-name */
+
+/*! ../internals/function-uncurry-this */
+
+/*! ../internals/function-uncurry-this-accessor */
+
+/*! ../internals/function-uncurry-this-clause */
+
+/*! ../internals/get-built-in */
+
+/*! ../internals/get-iterator */
+
+/*! ../internals/get-iterator-method */
+
+/*! ../internals/get-json-replacer-function */
+
+/*! ../internals/get-method */
+
+/*! ../internals/global */
+
+/*! ../internals/has-own-property */
+
+/*! ../internals/hidden-keys */
+
+/*! ../internals/html */
+
+/*! ../internals/ie8-dom-define */
+
+/*! ../internals/indexed-object */
+
+/*! ../internals/inspect-source */
+
+/*! ../internals/internal-state */
+
+/*! ../internals/is-array */
+
+/*! ../internals/is-array-iterator-method */
+
+/*! ../internals/is-callable */
+
+/*! ../internals/is-constructor */
+
+/*! ../internals/is-forced */
+
+/*! ../internals/is-null-or-undefined */
+
+/*! ../internals/is-object */
+
+/*! ../internals/is-pure */
+
+/*! ../internals/is-symbol */
+
+/*! ../internals/iterator-close */
+
+/*! ../internals/iterator-create-constructor */
+
+/*! ../internals/iterator-define */
+
+/*! ../internals/iterators */
+
+/*! ../internals/iterators-core */
+
+/*! ../internals/length-of-array-like */
+
+/*! ../internals/make-built-in */
+
+/*! ../internals/math-trunc */
+
+/*! ../internals/object-create */
+
+/*! ../internals/object-define-properties */
+
+/*! ../internals/object-define-property */
+
+/*! ../internals/object-get-own-property-descriptor */
+
+/*! ../internals/object-get-own-property-names */
+
+/*! ../internals/object-get-own-property-names-external */
+
+/*! ../internals/object-get-own-property-symbols */
+
+/*! ../internals/object-get-prototype-of */
+
+/*! ../internals/object-is-prototype-of */
+
+/*! ../internals/object-keys */
+
+/*! ../internals/object-keys-internal */
+
+/*! ../internals/object-property-is-enumerable */
+
+/*! ../internals/object-set-prototype-of */
+
+/*! ../internals/object-to-string */
+
+/*! ../internals/ordinary-to-primitive */
+
+/*! ../internals/own-keys */
+
+/*! ../internals/path */
+
+/*! ../internals/require-object-coercible */
+
+/*! ../internals/set-to-string-tag */
+
+/*! ../internals/shared */
+
+/*! ../internals/shared-key */
+
+/*! ../internals/shared-store */
+
+/*! ../internals/string-multibyte */
+
+/*! ../internals/symbol-constructor-detection */
+
+/*! ../internals/symbol-define-to-primitive */
+
+/*! ../internals/symbol-registry-detection */
+
+/*! ../internals/to-absolute-index */
+
+/*! ../internals/to-indexed-object */
+
+/*! ../internals/to-integer-or-infinity */
+
+/*! ../internals/to-length */
+
+/*! ../internals/to-object */
+
+/*! ../internals/to-primitive */
+
+/*! ../internals/to-property-key */
+
+/*! ../internals/to-string */
+
+/*! ../internals/to-string-tag-support */
+
+/*! ../internals/try-to-string */
+
+/*! ../internals/uid */
+
+/*! ../internals/use-symbol-as-uid */
+
+/*! ../internals/v8-prototype-define-bug */
+
+/*! ../internals/weak-map-basic-detection */
+
+/*! ../internals/well-known-symbol */
+
+/*! ../internals/well-known-symbol-define */
+
+/*! ../internals/well-known-symbol-wrapped */
+
+/*! ../modules/es.array.iterator */
+
+/*! ../modules/es.json.stringify */
+
+/*! ../modules/es.object.get-own-property-symbols */
+
+/*! ../modules/es.symbol.constructor */
+
+/*! ../modules/es.symbol.for */
+
+/*! ../modules/es.symbol.key-for */
+
+/*! ../scope.js */
+
+/*! ../types.js */
+
+/*! ../utils.js */
+
+/*! ../web-vitals/getCLS.js */
+
+/*! ../web-vitals/getFID.js */
+
+/*! ../web-vitals/getLCP.js */
+
+/*! ../web-vitals/lib/getVisibilityWatcher.js */
+
+/*! ../web-vitals/lib/observe.js */
+
+/*! ./api.js */
+
+/*! ./backgroundtab.js */
+
+/*! ./browser.js */
+
+/*! ./browser/browsertracing.js */
+
+/*! ./browser/request.js */
+
+/*! ./cjs/react-dom.development.js */
+
+/*! ./cjs/react.development.js */
+
+/*! ./cjs/scheduler.development.js */
+
+/*! ./client.js */
+
+/*! ./constants.js */
+
+/*! ./core */
+
+/*! ./core.js */
+
+/*! ./dsn.js */
+
+/*! ./env.js */
+
+/*! ./envelope.js */
+
+/*! ./error.js */
+
+/*! ./errors.js */
+
+/*! ./eventbuilder.js */
+
+/*! ./generateUniqueID.js */
+
+/*! ./getActivationStart.js */
+
+/*! ./getNavigationEntry.js */
+
+/*! ./helpers.js */
+
+/*! ./hub.js */
+
+/*! ./hubextensions.js */
+
+/*! ./idletransaction.js */
+
+/*! ./integration.js */
+
+/*! ./integrations/breadcrumbs.js */
+
+/*! ./integrations/dedupe.js */
+
+/*! ./integrations/globalhandlers.js */
+
+/*! ./integrations/httpcontext.js */
+
+/*! ./integrations/index.js */
+
+/*! ./integrations/linkederrors.js */
+
+/*! ./integrations/trycatch.js */
+
+/*! ./is.js */
+
+/*! ./lib/bindReporter.js */
+
+/*! ./lib/getActivationStart.js */
+
+/*! ./lib/getVisibilityWatcher.js */
+
+/*! ./lib/initMetric.js */
+
+/*! ./lib/observe.js */
+
+/*! ./lib/onHidden.js */
+
+/*! ./logger.js */
+
+/*! ./memo.js */
+
+/*! ./metrics/index.js */
+
+/*! ./node.js */
+
+/*! ./node/apollo.js */
+
+/*! ./node/express.js */
+
+/*! ./node/graphql.js */
+
+/*! ./node/mongo.js */
+
+/*! ./node/mysql.js */
+
+/*! ./node/postgres.js */
+
+/*! ./node/prisma.js */
+
+/*! ./normalize.js */
+
+/*! ./object.js */
+
+/*! ./onHidden.js */
+
+/*! ./request.js */
+
+/*! ./router.js */
+
+/*! ./scope.js */
+
+/*! ./session.js */
+
+/*! ./span.js */
+
+/*! ./spanstatus.js */
+
+/*! ./stack-parsers.js */
+
+/*! ./stacktrace.js */
+
+/*! ./string.js */
+
+/*! ./supports.js */
+
+/*! ./syncpromise.js */
+
+/*! ./time.js */
+
+/*! ./transaction.js */
+
+/*! ./transports/fetch.js */
+
+/*! ./transports/xhr.js */
+
+/*! ./types.js */
+
+/*! ./url.js */
+
+/*! ./utils.js */
+
+/*! ./utils/node-utils.js */
+
+/*! ./utils/prepareEvent.js */
+
+/*! ./worldwide.js */
+
+/*! @sentry/browser */
+
+/*! @sentry/core */
+
+/*! @sentry/utils */
+
+/*! @sentry/utils/esm/buildPolyfills */
+
+/*! asap/raw */
+
+/*! core-js/features/array/from */
+
+/*! core-js/features/symbol */
+
+/*! object-assign */
+
+/*! promise/lib/es6-extensions.js */
+
+/*! promise/lib/rejection-tracking */
+
+/*! react */
+
+/*! react-dom */
+
+/*! scheduler */
+
+/*! whatwg-fetch */
+
+/*!*************************************!*\
+  !*** ./node_modules/react/index.js ***!
+  \*************************************/
+
+/*!*****************************************!*\
+  !*** ./node_modules/react-dom/index.js ***!
+  \*****************************************/
+
+/*!*****************************************!*\
+  !*** ./node_modules/scheduler/index.js ***!
+  \*****************************************/
+
+/*!******************************************!*\
+  !*** ./node_modules/asap/browser-raw.js ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** ./node_modules/promise/lib/core.js ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** ./node_modules/react-dom/client.js ***!
+  \******************************************/
+
+/*!********************************************!*\
+  !*** ./node_modules/whatwg-fetch/fetch.js ***!
+  \********************************************/
+
+/*!*********************************************!*\
+  !*** ./node_modules/object-assign/index.js ***!
+  \*********************************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/@sentry/core/esm/api.js ***!
+  \**********************************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/@sentry/core/esm/hub.js ***!
+  \**********************************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/@sentry/core/esm/sdk.js ***!
+  \**********************************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/is.js ***!
+  \**********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/@sentry/react/esm/sdk.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/dsn.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/env.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/url.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/core-js/es/array/from.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/core-js/internals/uid.js ***!
+  \***********************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/@sentry/core/esm/scope.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/memo.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/misc.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/node.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/time.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/core-js/internals/html.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/core-js/internals/path.js ***!
+  \************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/@sentry/browser/esm/sdk.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/error.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/core-js/es/symbol/index.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/core-js/full/array/from.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/core-js/internals/fails.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/react-app-polyfill/ie11.js ***!
+  \*************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/@sentry/core/esm/exports.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/@sentry/core/esm/session.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/@sentry/core/esm/version.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/span.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/logger.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/object.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/string.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/core-js/internals/export.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/core-js/internals/global.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/core-js/internals/shared.js ***!
+  \**************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/@sentry/core/esm/envelope.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/index.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/utils.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/baggage.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/browser.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/tracing.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/core-js/actual/array/from.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/core-js/full/symbol/index.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/core-js/internals/classof.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/core-js/internals/is-pure.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/core-js/modules/es.symbol.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/core-js/stable/array/from.js ***!
+  \***************************************************/
+
+/*!****************************************************!*\
+  !*** ./node_modules/@sentry/browser/esm/client.js ***!
+  \****************************************************/
+
+/*!****************************************************!*\
+  !*** ./node_modules/@sentry/core/esm/constants.js ***!
+  \****************************************************/
+
+/*!****************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/errors.js ***!
+  \****************************************************/
+
+/*!****************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/envelope.js ***!
+  \****************************************************/
+
+/*!****************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/severity.js ***!
+  \****************************************************/
+
+/*!****************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/supports.js ***!
+  \****************************************************/
+
+/*!****************************************************!*\
+  !*** ./node_modules/core-js/internals/is-array.js ***!
+  \****************************************************/
+
+/*!****************************************************!*\
+  !*** ./node_modules/core-js/internals/own-keys.js ***!
+  \****************************************************/
+
+/*!****************************************************!*\
+  !*** ./node_modules/promise/lib/es6-extensions.js ***!
+  \****************************************************/
+
+/*!****************************************************!*\
+  !*** ./node_modules/web-vitals/dist/web-vitals.js ***!
+  \****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/@sentry/browser/esm/helpers.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/@sentry/core/esm/baseclient.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/normalize.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/ratelimit.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/worldwide.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/core-js/actual/symbol/index.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/core-js/features/array/from.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/core-js/internals/an-object.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/core-js/internals/is-forced.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/core-js/internals/is-object.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/core-js/internals/is-symbol.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/core-js/internals/iterators.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/core-js/internals/to-length.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/core-js/internals/to-object.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/core-js/internals/to-string.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/core-js/stable/symbol/index.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/react/cjs/react.development.js ***!
+  \*****************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/@sentry/core/esm/integration.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/instrument.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/stacktrace.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/core-js/internals/a-callable.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/core-js/internals/array-from.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/core-js/internals/get-method.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/core-js/internals/math-trunc.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/core-js/internals/shared-key.js ***!
+  \******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/requestdata.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/syncpromise.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js/features/symbol/index.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js/internals/array-slice.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js/internals/classof-raw.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js/internals/descriptors.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js/internals/hidden-keys.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js/internals/is-callable.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js/internals/object-keys.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js/modules/es.array.from.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js/modules/es.symbol.for.js ***!
+  \*******************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/spanstatus.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/clientreport.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/core-js/internals/document-all.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/core-js/internals/get-built-in.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/core-js/internals/get-iterator.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/core-js/internals/shared-store.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/core-js/internals/to-primitive.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/getUrl.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/promise/lib/rejection-tracking.js ***!
+  \********************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/transaction.js ***!
+  \*********************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/promisebuffer.js ***!
+  \*********************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/internals/dom-iterables.js ***!
+  \*********************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/internals/enum-bug-keys.js ***!
+  \*********************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/internals/function-call.js ***!
+  \*********************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/internals/function-name.js ***!
+  \*********************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/internals/make-built-in.js ***!
+  \*********************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/internals/object-create.js ***!
+  \*********************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/internals/try-to-string.js ***!
+  \*********************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.array.concat.js ***!
+  \*********************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.symbol.match.js ***!
+  \*********************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.symbol.split.js ***!
+  \*********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/@sentry/browser/esm/eventbuilder.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/@sentry/core/esm/transports/base.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/internals/array-includes.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/internals/function-apply.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/internals/ie8-dom-define.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/internals/indexed-object.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/internals/inspect-source.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/internals/internal-state.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/internals/is-constructor.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/internals/iterator-close.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/internals/iterators-core.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.symbol.search.js ***!
+  \**********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/@sentry/browser/esm/stack-parsers.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/browser/types.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/hubextensions.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/internals/array-iteration.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/internals/create-property.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/internals/define-built-in.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/internals/iterator-define.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/internals/to-property-key.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.array.iterator.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.json.stringify.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.symbol.key-for.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.symbol.replace.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.symbol.species.js ***!
+  \***********************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@sentry/browser/esm/transports/xhr.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/browser/router.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/internals/has-own-property.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/internals/object-to-string.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/internals/string-multibyte.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/modules/es.string.iterator.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/modules/es.symbol.iterator.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/sourceMaps.js ***!
+  \************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@sentry/core/esm/utils/prepareEvent.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/browser/request.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/idletransaction.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js/internals/engine-user-agent.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js/internals/engine-v8-version.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js/internals/set-to-string-tag.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js/internals/to-absolute-index.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js/internals/to-indexed-object.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js/internals/use-symbol-as-uid.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js/internals/well-known-symbol.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js/modules/es.object.to-string.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js/modules/es.symbol.match-all.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/react-dom/cjs/react-dom.development.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/scheduler/cjs/scheduler.development.js ***!
+  \*************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@sentry/browser/esm/transports/fetch.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@sentry/browser/esm/transports/utils.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/core-js/internals/add-to-unscopables.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/core-js/internals/array-slice-simple.js ***!
+  \**************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/core-js/internals/get-iterator-method.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/core-js/modules/es.json.to-string-tag.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/core-js/modules/es.math.to-string-tag.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/core-js/modules/es.symbol.constructor.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/core-js/modules/es.symbol.description.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/core-js/modules/es.symbol.unscopables.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/core-js/modules/esnext.symbol.dispose.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/core-js/modules/esnext.symbol.matcher.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/styleDomAPI.js ***!
+  \***************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/integrations/index.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/core-js/internals/a-possible-prototype.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/core-js/internals/array-species-create.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/core-js/internals/function-bind-native.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/core-js/internals/is-null-or-undefined.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/core-js/internals/length-of-array-like.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/core-js/internals/object-keys-internal.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/core-js/modules/es.symbol.has-instance.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/core-js/modules/es.symbol.to-primitive.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/core-js/modules/esnext.symbol.metadata.js ***!
+  \****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/@sentry/browser/esm/integrations/dedupe.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/core-js/internals/function-bind-context.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/core-js/internals/function-uncurry-this.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/core-js/internals/ordinary-to-primitive.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/core-js/internals/to-string-tag-support.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/core-js/modules/es.symbol.to-string-tag.js ***!
+  \*****************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@sentry/core/esm/utils/hasTracingEnabled.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/core-js/internals/define-global-property.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/core-js/internals/object-define-property.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/core-js/internals/object-is-prototype-of.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/core-js/internals/to-integer-or-infinity.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/core-js/modules/es.reflect.to-string-tag.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/core-js/modules/es.symbol.async-iterator.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/core-js/modules/esnext.symbol.observable.js ***!
+  \******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@sentry/browser/esm/integrations/trycatch.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/browser/backgroundtab.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/browser/metrics/index.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/browser/metrics/utils.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/core-js/internals/document-create-element.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/core-js/internals/object-get-prototype-of.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/core-js/internals/object-set-prototype-of.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/core-js/internals/v8-prototype-define-bug.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/core-js/modules/esnext.symbol.replace-all.js ***!
+  \*******************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/browser/browsertracing.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/core-js/internals/correct-prototype-getter.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/core-js/internals/define-built-in-accessor.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/core-js/internals/dom-token-list-prototype.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/core-js/internals/is-array-iterator-method.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/core-js/internals/object-define-properties.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/core-js/internals/require-object-coercible.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/core-js/internals/weak-map-basic-detection.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/core-js/internals/well-known-symbol-define.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/core-js/modules/esnext.symbol.metadata-key.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/insertBySelector.js ***!
+  \********************************************************************/
+
+/*!*********************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/integrations/node/mongo.js ***!
+  \*********************************************************************/
+
+/*!*********************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/integrations/node/mysql.js ***!
+  \*********************************************************************/
+
+/*!*********************************************************************!*\
+  !*** ./node_modules/core-js/internals/array-species-constructor.js ***!
+  \*********************************************************************/
+
+/*!*********************************************************************!*\
+  !*** ./node_modules/core-js/internals/create-iter-result-object.js ***!
+  \*********************************************************************/
+
+/*!*********************************************************************!*\
+  !*** ./node_modules/core-js/internals/symbol-registry-detection.js ***!
+  \*********************************************************************/
+
+/*!*********************************************************************!*\
+  !*** ./node_modules/core-js/internals/well-known-symbol-wrapped.js ***!
+  \*********************************************************************/
+
+/*!*********************************************************************!*\
+  !*** ./node_modules/core-js/modules/esnext.symbol.async-dispose.js ***!
+  \*********************************************************************/
+
+/*!*********************************************************************!*\
+  !*** ./node_modules/core-js/modules/esnext.symbol.is-registered.js ***!
+  \*********************************************************************/
+
+/*!*********************************************************************!*\
+  !*** ./node_modules/core-js/modules/esnext.symbol.is-well-known.js ***!
+  \*********************************************************************/
+
+/*!*********************************************************************!*\
+  !*** ./node_modules/core-js/modules/esnext.symbol.pattern-match.js ***!
+  \*********************************************************************/
+
+/*!*********************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/styleTagTransform.js ***!
+  \*********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/@sentry/browser/esm/integrations/breadcrumbs.js ***!
+  \**********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/@sentry/browser/esm/integrations/httpcontext.js ***!
+  \**********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/@sentry/core/esm/integrations/inboundfilters.js ***!
+  \**********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/integrations/node/apollo.js ***!
+  \**********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/integrations/node/prisma.js ***!
+  \**********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/core-js/internals/create-property-descriptor.js ***!
+  \**********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/core-js/internals/get-json-replacer-function.js ***!
+  \**********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/core-js/internals/symbol-define-to-primitive.js ***!
+  \**********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/core-js/modules/web.dom-collections.iterator.js ***!
+  \**********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/insertStyleElement.js ***!
+  \**********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@sentry/browser/esm/integrations/linkederrors.js ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/browser/web-vitals/getCLS.js ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/browser/web-vitals/getFID.js ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/browser/web-vitals/getLCP.js ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/integrations/node/express.js ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/integrations/node/graphql.js ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/core-js/internals/copy-constructor-properties.js ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/core-js/internals/iterator-create-constructor.js ***!
+  \***********************************************************************/
+
+/*!************************************************************************!*\
+  !*** ./node_modules/@sentry/core/esm/integrations/functiontostring.js ***!
+  \************************************************************************/
+
+/*!************************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/integrations/node/postgres.js ***!
+  \************************************************************************/
+
+/*!************************************************************************!*\
+  !*** ./node_modules/core-js/internals/does-not-exceed-safe-integer.js ***!
+  \************************************************************************/
+
+/*!************************************************************************!*\
+  !*** ./node_modules/core-js/internals/function-uncurry-this-clause.js ***!
+  \************************************************************************/
+
+/*!************************************************************************!*\
+  !*** ./node_modules/core-js/internals/symbol-constructor-detection.js ***!
+  \************************************************************************/
+
+/*!************************************************************************!*\
+  !*** ./node_modules/core-js/modules/es.symbol.is-concat-spreadable.js ***!
+  \************************************************************************/
+
+/*!*************************************************************************!*\
+  !*** ./node_modules/@sentry/browser/esm/integrations/globalhandlers.js ***!
+  \*************************************************************************/
+
+/*!*************************************************************************!*\
+  !*** ./node_modules/@sentry/utils/esm/buildPolyfills/_optionalChain.js ***!
+  \*************************************************************************/
+
+/*!*************************************************************************!*\
+  !*** ./node_modules/core-js/internals/object-get-own-property-names.js ***!
+  \*************************************************************************/
+
+/*!*************************************************************************!*\
+  !*** ./node_modules/core-js/internals/object-property-is-enumerable.js ***!
+  \*************************************************************************/
+
+/*!**************************************************************************!*\
+  !*** ./node_modules/@sentry/webpack-plugin/src/sentry-webpack.module.js ***!
+  \**************************************************************************/
+
+/*!**************************************************************************!*\
+  !*** ./node_modules/core-js/internals/check-correctness-of-iteration.js ***!
+  \**************************************************************************/
+
+/*!**************************************************************************!*\
+  !*** ./node_modules/core-js/internals/create-non-enumerable-property.js ***!
+  \**************************************************************************/
+
+/*!**************************************************************************!*\
+  !*** ./node_modules/core-js/internals/function-uncurry-this-accessor.js ***!
+  \**************************************************************************/
+
+/*!***************************************************************************!*\
+  !*** ./node_modules/core-js/internals/object-get-own-property-symbols.js ***!
+  \***************************************************************************/
+
+/*!****************************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/browser/web-vitals/lib/observe.js ***!
+  \****************************************************************************/
+
+/*!****************************************************************************!*\
+  !*** ./node_modules/core-js/internals/array-method-has-species-support.js ***!
+  \****************************************************************************/
+
+/*!****************************************************************************!*\
+  !*** ./node_modules/core-js/internals/call-with-safe-iteration-closing.js ***!
+  \****************************************************************************/
+
+/*!****************************************************************************!*\
+  !*** ./node_modules/core-js/modules/es.object.get-own-property-symbols.js ***!
+  \****************************************************************************/
+
+/*!****************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************/
+
+/*!*****************************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/browser/web-vitals/lib/onHidden.js ***!
+  \*****************************************************************************/
+
+/*!******************************************************************************!*\
+  !*** ./node_modules/core-js/internals/object-get-own-property-descriptor.js ***!
+  \******************************************************************************/
+
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/browser/web-vitals/lib/initMetric.js ***!
+  \*******************************************************************************/
+
+/*!********************************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/integrations/node/utils/node-utils.js ***!
+  \********************************************************************************/
+
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/browser/web-vitals/lib/bindReporter.js ***!
+  \*********************************************************************************/
+
+/*!**********************************************************************************!*\
+  !*** ./node_modules/core-js/internals/object-get-own-property-names-external.js ***!
+  \**********************************************************************************/
+
+/*!**********************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js ***!
+  \**********************************************************************************/
+
+/*!*************************************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/browser/web-vitals/lib/generateUniqueID.js ***!
+  \*************************************************************************************/
+
+/*!***************************************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/browser/web-vitals/lib/getActivationStart.js ***!
+  \***************************************************************************************/
+
+/*!***************************************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/browser/web-vitals/lib/getNavigationEntry.js ***!
+  \***************************************************************************************/
+
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/@sentry/tracing/esm/browser/web-vitals/lib/getVisibilityWatcher.js ***!
+  \*****************************************************************************************/
+
+/**
+ * @license React
+ * react-dom.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * @license React
+ * scheduler.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * Checks if an event is supported in the current execution environment.
+ *
+ * NOTE: This will not work correctly for non-generic events such as `change`,
+ * `reset`, `load`, `error`, and `select`.
+ *
+ * Borrows from Modernizr.
+ *
+ * @param {string} eventNameSuffix Event name, e.g. "click".
+ * @return {boolean} True if the event is supported.
+ * @internal
+ * @license Modernizr 3.0.0pre (Custom Build) | MIT
+ */

@@ -1,0 +1,22 @@
+.mf-text-input {
+	padding: 20px 10px;
+	margin: 0;
+	border: 0;
+	border-bottom: 1px solid #ededed;
+	background: #fff;
+	width: 100%;
+	font-size: 0.9rem;
+	border-radius: 0;
+	box-sizing: border-box;
+	appearance: none;
+	outline: none;
+	color: #ededed;
+}
+
+.mf-text-label {
+	position: relative;
+	width: 100%;
+	gap: 10px;
+	font-size: 0.9rem;
+	color: black;
+}

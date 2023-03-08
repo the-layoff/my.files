@@ -1,0 +1,135 @@
+/**
+ * My-Files workspace settings.
+ *
+ * This setting provides sensible defaults for team members. To ignore this file,
+ * open the default workspace directory as a folder (rather than opening this file, which opens
+ * the workspace). To override this file, use folder-specific settings in the .vscode
+ * folder.
+ *
+ * Settings added here should plausibly improve the quality value for multiple
+ * engineers without creating hassles for engineers to whom it does not apply. (For
+ * example, there is a useful RST plugin noted below that is not included because it
+ * has a tendency to cause error messages.)
+ */
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"prettier.tabWidth": 4,
+		"files.associations": {
+			".pre-commit-config.yaml": "yaml"
+		},
+		"html.format.wrapLineLength": 79,
+		"eslint.format.enable": true,
+		"[json]": {
+			"editor.defaultFormatter": "esbenp.prettier-vscode"
+		},
+		"[jsonc]": {
+			"editor.defaultFormatter": "esbenp.prettier-vscode"
+		},
+		"pgFormatter.pgFormatterPath": "/opt/homebrew/bin/pg_format --no-extra-line",
+		"vetur.format.defaultFormatterOptions": {
+			"prettier": {},
+			"js-beautify-html": {
+				"wrap_attributes": "force-expand-multiline"
+			},
+			"prettyhtml": {
+				"printWidth": 100,
+				"singleQuote": false,
+				"wrapAttributes": false,
+				"sortAttributes": false
+			}
+		},
+		"[typescriptreact]": {
+			"editor.defaultFormatter": "esbenp.prettier-vscode"
+		},
+		"[javascript]": {
+			"editor.defaultFormatter": "esbenp.prettier-vscode"
+		},
+		"[typescript]": {
+			"editor.defaultFormatter": "esbenp.prettier-vscode",
+			"typescript.suggest.enabled": true
+		},
+		"typescript.updateImportsOnFileMove.enabled": "prompt",
+		"typescript.suggestionActions.enabled": true,
+		"python.analysis.diagnosticMode": "workspace",
+		"[python]": {
+			"editor.defaultFormatter": "ms-python.black-formatter",
+			"editor.formatOnSave": true,
+			"editor.formatOnPaste": false,
+			"editor.formatOnType": false, // check back in on this one
+			"editor.wordWrap": "wordWrapColumn",
+			"editor.codeActionsOnSave": {
+				"source.organizeImports": true
+			},
+		},
+		"python.analysis.autoImportCompletions": true,
+		"python.analysis.exclude": ["./stubs", "*.pyi"],
+		"python.analysis.extraPaths": [
+			"${workspaceFolder}", // Needed to enable auto-import "Quick Fix" (CMD+.)
+			"./src/api", // Needed to enable auto-import "Quick Fix" (CMD+.)
+			"./src/game" // Needed to enable auto-import "Quick Fix" (CMD+.)
+		],
+		"python.analysis.fixAll": ["source.convertImportFormat"],
+		"python.analysis.include": ["./src/api", "./src/game"],
+		"python.analysis.importFormat": "absolute",
+		"python.analysis.stubPath": "${workspaceFolder}/stubs",
+		"python.analysis.typeCheckingMode": "strict",
+		"python.autoComplete.extraPaths": ["${workspaceFolder}"],
+		"python.defaultInterpreterPath": "${HOME}/.asdf/installs/python/3.10.9",
+		"python.linting.enabled": true,
+		"python.linting.flake8Enabled": true,
+		"python.linting.mypyArgs": [
+			"--config-file=${workspaceFolder}/mypy.ini",
+			"--show-column-numbers",
+			"--no-pretty"
+		],
+		"python.linting.mypyCategorySeverity.note": "Error",
+		"python.linting.mypyEnabled": true,
+		"python.linting.mypyPath": "${workspaceFolder}/.venv/bin/mypy",
+		"python.linting.pylintArgs": [
+			"--config=${workspaceFolder}/pyproject.toml",
+			"--load-plugins pylint_pydantic",
+			"--disable=C0111, C0114, C0115, C0116",
+			"--disable=missing-class-docstring",
+			"--disable=missing-function-docstring",
+			"--disable=missing-module-docstring"
+		],
+		"python.linting.pylintEnabled": false,
+		"flake8.logLevel": "info",
+		"flake8.args": ["--config=${workspaceFolder}/setup.cfg"],
+		"black-formatter.args": [
+			"--config=${workspaceFolder}/pyproject.toml",
+			"--line-length",
+			"79"
+		],
+		"isort.args": ["--settings-file=${workspaceFolder}/setup.cfg"],
+		"[yaml]": {
+			"editor.insertSpaces": true,
+			"editor.tabSize": 2,
+			"editor.autoIndent": "advanced",
+			"gitlens.codeLens.scopes": ["document"]
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-python.python",
+			"ms-python.flake8",
+			"ms-python.isort",
+			"ms-python.black-formatter",
+			"ms-python.vscode-pylance",
+			"octref.vetur",
+			"esbenp.prettier-vscode",
+			"trond-snekvik.simple-rst",
+			"eamodio.gitlens",
+			"bradymholt.pgformatter"
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": []
+	}
+}

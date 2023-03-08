@@ -1,0 +1,13 @@
+node_modules
+
+apps/eyes/experimental
+apps/eyes/public
+
+apps/code/*
+website/*
+services/*
+packages
+
+*.env
+.editorconfig
+.DS_Store
